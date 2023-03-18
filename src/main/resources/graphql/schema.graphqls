@@ -1,0 +1,25 @@
+type Flight {
+  id: Int!
+  name: String!
+  start: String!
+  destination: String!
+  via: String 
+  seats: Int!
+  cost: Float!
+  expectedTravelTime: String
+}
+
+type Query {
+  flights: [Flight]
+  flight(id: Int!): Flight
+  flightsByStart(start: String!): [Flight]
+  flightsByDest(destination: String!): [Flight]
+  flightsByStartAndDest(start: String!, destination: String!): [Flight]
+}
+
+type Mutation {
+  addFlight(name: String!, start: String!, destination: String!, via: String!, cost: Float!, seats: Int!, expectedTravelTime: String): Flight
+  updateCost(id: Int!, cost: Float!): Boolean!
+  updateSeats(id: Int!, seats: Int!): Boolean!
+  updateVia(id: Int!, via: String!): Boolean!
+}
