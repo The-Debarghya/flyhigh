@@ -4,6 +4,8 @@ import java.security.Key;
 import java.util.*;
 import java.util.function.Function;
 
+import javax.crypto.SecretKey;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +13,14 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
 
 @Service
 public class JwtService {
 
-    private static final String JWT_SECRET = "a1dfc0657c1171e593fd13dc1bd382274b9f42380491274af0b5a91e295a2c66";
+    private SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private String JWT_SECRET = Encoders.BASE64.encode(key.getEncoded());
 
     public String extractUsername(String jwt) {
         return extractClaim(jwt, Claims::getSubject);
