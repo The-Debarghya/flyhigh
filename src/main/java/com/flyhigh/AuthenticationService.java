@@ -21,7 +21,7 @@ public class AuthenticationService {
     private UserRepository repository;
     
     public AuthenticationResponse register(RegisterRequest request) {
-        var user = new User(UUID.randomUUID(), request.getEmail(), passwordEncoder.encode(request.getPassword()), Role.ADMIN);
+        var user = new User(UUID.randomUUID(), request.getEmail(), passwordEncoder.encode(request.getPassword()), Role.ROLE_ADMIN);
         repository.save(user);
         var jwt = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwt).build();

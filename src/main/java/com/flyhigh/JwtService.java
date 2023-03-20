@@ -3,9 +3,6 @@ package com.flyhigh;
 import java.security.Key;
 import java.util.*;
 import java.util.function.Function;
-
-import javax.crypto.SecretKey;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +10,12 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
 
 @Service
 public class JwtService {
 
-    private SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private String JWT_SECRET = Encoders.BASE64.encode(key.getEncoded());
+    private String JWT_SECRET = "137a71e2c1568a5a57f5928d1ac0261914f2e694600ec1903784d57bf6993711ee41af8bb2a9095d4dd1b510a40f07c0";
 
     public String extractUsername(String jwt) {
         return extractClaim(jwt, Claims::getSubject);
@@ -45,7 +40,7 @@ public class JwtService {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
-                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .signWith(getSignInKey(), SignatureAlgorithm.HS384)
                 .compact();
     }
 
