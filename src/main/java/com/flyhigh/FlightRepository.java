@@ -9,4 +9,5 @@ public interface FlightRepository extends JpaRepository<Flight, Integer> {
     List<Flight> findByStartAndDestination(String start, String destination);
     List<Flight> findByStartAndVia(String start, String via);
     List<Flight> findByViaAndDestination(String via, String destination);
+    List<Flight> findByCostLessThanEqual(Double cost);
 }

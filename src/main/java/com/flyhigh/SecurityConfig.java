@@ -25,7 +25,6 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests()
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/demo-controller").hasRole("ADMIN")
                 .requestMatchers("/graphql").permitAll()
                 .anyRequest().authenticated()
                 .and()

@@ -15,6 +15,7 @@ type Query {
   flightsByStart(start: String!): [Flight]
   flightsByDest(destination: String!): [Flight]
   flightsByStartAndDest(start: String!, destination: String!): [Flight]
+  flightsByCost(cost: Float!): [Flight]
 }
 
 type Mutation {
