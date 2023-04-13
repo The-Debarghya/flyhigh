@@ -6,7 +6,7 @@ type Flight {
   via: String 
   seats: Int!
   cost: Float!
-  expectedTravelTime: String
+  travelTime: String
 }
 
 type Query {
