@@ -30,6 +30,9 @@ public class Flight {
     @Column(nullable = true)
     private String travelTime;
 
+    @Column(nullable = false)
+    private Double updatedCost;
+
     public Flight() {
     }
 
@@ -43,6 +46,7 @@ public class Flight {
         this.seats = seats;
         this.cost = cost;
         this.travelTime = time;
+        this.updatedCost = cost;
     }
 
     public Flight(Integer id, String name, String start, String dest, Integer seats, Double cost, String time) {
@@ -53,6 +57,7 @@ public class Flight {
         this.seats = seats;
         this.cost = cost;
         this.travelTime = time;
+        this.updatedCost = cost;
     }
 
     public Integer getId() {
@@ -87,6 +92,10 @@ public class Flight {
         return this.travelTime;
     }
 
+    public Double getUpdatedCost() {
+        return this.updatedCost;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -113,6 +122,10 @@ public class Flight {
 
     public void setTime(String time) {
         this.travelTime = time;
+    }
+
+    public void setUpdatedCost(Double updatedCost) {
+        this.updatedCost = updatedCost;
     }
 
     @Override

@@ -86,4 +86,21 @@ public class MutationResolver {
             return false;
         }
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @MutationMapping
+    public Boolean updateUpdatedCost(@Argument Integer id, @Argument Double cost) {
+        try {
+            Flight flight = flightRepository.findById(id).orElse(null);
+            if (flight == null) {
+                throw new Exception();
+            }
+            flight.setUpdatedCost(cost);
+            flightRepository.save(flight);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
