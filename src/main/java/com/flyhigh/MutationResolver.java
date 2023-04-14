@@ -103,4 +103,16 @@ public class MutationResolver {
             return false;
         }
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @MutationMapping
+    public Boolean updateCostByName(@Argument String name, @Argument Double cost) {
+        try {
+            flightRepository.updateUpdatedCostByName(name, cost);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
