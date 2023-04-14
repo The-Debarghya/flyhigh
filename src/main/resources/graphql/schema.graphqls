@@ -19,7 +19,7 @@ type Query {
 }
 
 type Mutation {
-  addFlight(name: String!, start: String!, destination: String!, via: String!, cost: Float!, seats: Int!, expectedTravelTime: String): Flight
+  addFlight(name: String!, start: String!, destination: String!, via: String!, cost: Float!, seats: Int!, travelTime: String): Flight
   updateCost(id: Int!, cost: Float!): Boolean!
   updateSeats(id: Int!, seats: Int!): Boolean!
   updateVia(id: Int!, via: String!): Boolean!

@@ -20,13 +20,13 @@ public class MutationResolver {
         @Argument String via, 
         @Argument Double cost, 
         @Argument Integer seats, 
-        @Argument String expectedTravelTime 
+        @Argument String travelTime 
     ) {
-        if(expectedTravelTime == null) {
-            expectedTravelTime = "";
+        if(travelTime == null) {
+            travelTime = "";
         }
         Integer id = Math.toIntExact(flightRepository.count()) + 1;
-        Flight flight = new Flight(id, name, start, destination, seats, cost, expectedTravelTime);
+        Flight flight = new Flight(id, name, start, destination, seats, cost, travelTime);
         try{
             flightRepository.save(flight);
             return flight;
