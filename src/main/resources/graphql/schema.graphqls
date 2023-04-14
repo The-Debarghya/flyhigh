@@ -25,5 +25,5 @@ type Mutation {
   updateSeats(id: Int!, seats: Int!): Boolean!
   updateVia(id: Int!, via: String!): Boolean!
   updateUpdatedCost(id: Int!, cost: Float!): Boolean!
-  updateCostByName(id: String!, cost: Float!): Boolean!
+  updateCostByName(name: String!, cost: Float!): Boolean!
 }

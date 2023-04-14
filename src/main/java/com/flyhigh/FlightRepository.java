@@ -20,6 +20,6 @@ public interface FlightRepository extends JpaRepository<Flight, Integer> {
     void updateUpdatedCost();
 
     @Modifying
-    @Query("UPDATE Flight f SET f.updatedCost = :newCost WHERE f.name = :name")
-    void updateUpdatedCostByName(@Param("name") String name, @Param("newCost") Double newCost);
+    @Query("UPDATE Flight f SET f.updatedCost = :cost WHERE f.name = :name")
+    void updateUpdatedCostByName(@Param("name") String name, @Param("cost") Double cost);
 }

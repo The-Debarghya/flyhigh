@@ -5,6 +5,7 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 
 @Controller
 public class MutationResolver {
@@ -106,6 +107,7 @@ public class MutationResolver {
 
     @PreAuthorize("hasRole('ADMIN')")
     @MutationMapping
+    @Transactional
     public Boolean updateCostByName(@Argument String name, @Argument Double cost) {
         try {
             flightRepository.updateUpdatedCostByName(name, cost);
