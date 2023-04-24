@@ -26,6 +26,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/graphql").permitAll()
+                .requestMatchers("/sms/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

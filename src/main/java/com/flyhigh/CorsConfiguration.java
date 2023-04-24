@@ -19,5 +19,11 @@ public class CorsConfiguration implements WebMvcConfigurer {
                 .allowedMethods("POST") // Allow only POST method
                 .allowedHeaders("*") // Allow any headers
                 .allowCredentials(true); // Allow sending credentials (e.g., cookies)
+        
+        registry.addMapping("/sms/send")
+                .allowedOrigins("http://localhost:3000")
+                .allowedMethods("POST") // Allow only POST method
+                .allowedHeaders("*") // Allow any headers
+                .allowCredentials(true); // Allow sending credentials (e.g., cookies)
     }
 }
