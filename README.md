@@ -14,13 +14,10 @@
 ```
 - Using `docker`:
 ```
-docker build blog:latest .
-docker run --rm blog:latest
+docker build flyhigh:latest .
+docker run --rm flyhigh:latest
 ```
-- **OR**
-```
-docker run --rm heisenberg8622/blog:latest
-```
+
 ## Run the frontend:
 - `npm ci` then `npm run start`
 
